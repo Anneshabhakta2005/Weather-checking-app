@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  padding: 0;
+  margin: 50;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Rubik", sans-serif;
+}
+:root {
+  --font-color-main: #090124;
+  --white-color: #9cba87;
+  --glass-bg: rgba(218, 229, 232, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --dark-green: #266526;
+  --black-green: #0d1f0d;
+}
+body {
+  background-color: #041d33;
+  background-image: 
+    radial-gradient(at 80% 0%, hsla(189, 73%, 10%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.2) 0px, transparent 50%);
+  animation: lightSweep 12s infinite alternate;
+}
+
+@keyframes lightSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.pc {
+  width: 400px;
+  height: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid var(--glass-border);
+  border-radius: 40px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 60px;
+  border: 2px solid var(--white-color);
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--dark-green), var(--black-green));
+  box-shadow: 0 8px 32px 0 rgba(83, 23, 70, 0.3);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(29, 157, 29, 0.4);
+}
+
+nav ul {
+  display: flex;
+  gap: 2pc;
+}
+
+nav ul li a {
+  color: var(--white-color);
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  transform: scale(1.1);
+}
+
+.active {
+  background-color: var(--white-color);
+  color: var(--font-color-main);
+  border-radius: 100px;
+  padding: 8px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* main section */
+#screen {
+  width: 100%;
+  height: 100vh;
+  margin: 20px 0;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.city-name {
+  color: var(--font-color-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  gap: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.city-name i {
+  font-size: 20px;
+}
+
+.weather-icon-css {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+  margin-top: 10px;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+.weather-icon-css img {
+  width: 80%;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.weather-description {
+  height: 150px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--font-color-main);
+}
+
+.show-metric {
+  padding-left: 30px;
+  font-size: 90px;
+  font-weight: 550;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-details {
+  font-size: 14px;
+  margin: 50px 20px 30px 10px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-details .h-f {
+  display: flex;
+  gap: 5px;
+}
+
+.forcasts-box {
+  display: flex;
+  margin: 20px 0;
+  color: var(--font-color-main);
+}
+
+.today-forecast {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  margin-left: 15px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.today-forecast:hover {
+  transform: translateY(-5px) rotate(2deg);
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.2);
+}
+
+.weather-icon-today img {
+  width: 23px;
+}
+
+.temp-today {
+  font-weight: 500;
+}
+
+.weather-main-today {
+  padding: 3px 0 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+.forecast {
+  width: 65%;
+  height: 180px;
+  margin-left: 10px;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.forecast:hover {
+  transform: translateY(-5px) rotate(-1deg);
+}
+
+.forecast h5 {
+  text-align: left;
+  padding: 15px 0 0 15px;
+}
+
+#forecast-box {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-y: auto;
+  gap: 10px;
+  width: 95%;
+  padding: 10px 12px;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+#forecast-box::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-forecast-box {
+  width: 70px;
+  height: 110px;
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  align-items: center;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.weather-forecast-box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.day-weather {
+  font-size: 15px;
+}
+
+.weather-icon-forecast img {
+  width: 30px;
+}
+
+.temp-weather {
+  font-size: 12px;
+}
+
+.weather-main-forecast {
+  font-size: 12px;
+}
+
+@media (max-width: 400px) {
+  .pc {
+    border: none;
+    border-radius: none;
+    width: auto;
+    height: auto;
+  }
+}
+/* Grid Overlay Styles */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px; /* Adjust grid size */
+  z-index: 0; /* Between background and content */
+  pointer-events: none; /* Allows clicks to pass through */
+  opacity: 0.15; /* Adjust grid visibility */
+}
+
+/* Adjust z-indexes to layer properly */
+.video-background {
+  z-index: -2; /* Behind grid */
+}
+
+.pc {
+  z-index: 1; /* Above grid */
+}
+.gif-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.gif-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
